@@ -102,8 +102,8 @@ jobs:
         with:
           name: playwright-report-${{ steps.determine-env.outputs.environment }}-${{ github.run_id }} # 環境とランIDを含む一意な名前
           path: | # アップロード対象のパス
-            playwright-report/ # HTMLレポート
-            test-results/ # テスト実行結果ファイル
+            playwright-report/
+            test-results/
           retention-days: 14 # 保存期間（14日間）
 
       # cloudjpリポジトリにテスト完了を通知
