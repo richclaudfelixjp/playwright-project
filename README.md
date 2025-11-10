@@ -1,4 +1,4 @@
-# Playwright QA自動化ポートフォリオ
+# Playwright自動化テストポートフォリオ
 
 PlaywrightとCI/CD連携を実装したエンドツーエンドUIおよびAPIテスト自動化ポートフォリオ
 
@@ -7,11 +7,11 @@ PlaywrightとCI/CD連携を実装したエンドツーエンドUIおよびAPIテ
 - **UIテスト**: [SauceDemo](https://www.saucedemo.com/)のEコマースフロー
 - **APIテスト**: [ReqRes](https://reqres.in/api/)の認証フロー
 - **高度なテスト**: [DemoQA](https://demoqa.com/)の複雑な操作
-- **ポートフォリオテスト**: [cloud.jp](https://cloudjp.netlify.app)の自動テスト
+- **ポートフォリオテスト**: [cloudjp](https://cloudjp.netlify.app)の自動テスト
 
 ## 🔄 CI/CD連携
 
-[cloud.jpポートフォリオサイト](https://github.com/richclaudfelixjp/cloud.jp)のCI/CDパイプラインと連携:
+[cloudjpポートフォリオサイト](https://github.com/richclaudfelixjp/cloudjp-frontend)のCI/CDパイプラインと連携:
 
 - **自動トリガー**: デプロイ時に自動テスト実行
 - **ステータスレポート**: テスト結果をGitHubステータスチェックとして報告

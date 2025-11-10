@@ -1,4 +1,4 @@
-# cloud.jp向けのCI/CDワークフロー
+# cloudjp向けのCI/CDワークフロー
 # 手動実行とリポジトリディスパッチの両方に対応
 name: cloudjp CI/CD
 
@@ -16,7 +16,7 @@ on:
         - staging # ステージング環境
         - production # 本番環境
   
-  # 外部リポジトリからのディスパッチ（cloud.jpから自動実行）
+  # 外部リポジトリからのディスパッチ（cloudjpから自動実行）
   repository_dispatch:
     types: [cloudjp-test] # cloudjp-testイベントタイプを監視
 
@@ -28,7 +28,7 @@ permissions:
 
 # ジョブ定義
 jobs:
-  cloudjp-tests: # cloud.jpテストジョブ
+  cloudjp-tests: # cloudjpテストジョブ
     runs-on: ubuntu-latest # Ubuntu最新版で実行
     steps:
       # ソースコードをチェックアウト
@@ -75,7 +75,7 @@ jobs:
           echo "🌐 テストURL: $BASE_URL"
           echo "⏰ テスト開始時間: $(date -u '+%Y-%m-%d %H:%M:%S') UTC"
 
-      # cloud.jp向けPlaywrightテストを実行
+      # cloudjp向けPlaywrightテストを実行
       - name: Playwrightテストを実行
         id: run-tests # テスト結果を他のステップで参照するためのID
         run: |
@@ -106,13 +106,13 @@ jobs:
             test-results/ # テスト実行結果ファイル
           retention-days: 14 # 保存期間（14日間）
 
-      # cloud.jpリポジトリにテスト完了を通知
-      - name: cloud.jpにテスト結果を送信
+      # cloudjpリポジトリにテスト完了を通知
+      - name: cloudjpにテスト結果を送信
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.CLOUD_JP_REPO_TOKEN }} # cloud.jpリポジトリアクセス用トークン
-          repository: richclaudfelixjp/cloud.jp # 通知先リポジトリ
-          event-type: e2e-test-complete # イベントタイプ（cloud.jpで監視）
+          token: ${{ secrets.CLOUD_JP_REPO_TOKEN }} # cloudjpリポジトリアクセス用トークン
+          repository: richclaudfelixjp/cloudjp-frontend # 通知先リポジトリ
+          event-type: e2e-test-complete # イベントタイプ（cloudjpで監視）
           client-payload: | # 送信するデータペイロード
             {
               "commit_sha": "${{ github.event.client_payload.commit_sha || github.sha }}",
