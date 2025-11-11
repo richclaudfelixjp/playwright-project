@@ -21,7 +21,7 @@ test('ナビゲーションチェック', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'お問い合わせ' })).toBeVisible(); // お問い合わせページが表示されることを確認
   
   // ホームページへ戻る
-  await page.getByRole('link', { name: 'cloud.jp' }).click();
+  await page.getByRole('link', { name: 'cloudjp' }).click();
   await expect(page.getByRole('heading', { name: 'フェリックス・リッチクラウド' })).toBeVisible(); // ホームページに戻ったことを確認
 });
 
